@@ -1,35 +1,91 @@
 # STONE PAPER SCISSORS!
 
-human_1 = input(
-    """Player 1
-Enter 'Stone', 'Paper' or 'Scissors':"""
-)
-human_2 = input(
-    """Player 2
-Enter 'Stone', 'Paper' or 'Scissors':"""
-)
-if human_1 == "Stone" or human_1 == "stone":
-    if human_2 == "Stone" or human_2 == "stone":
-        print("It's a draw!")
-    elif human_2 == "Paper" or human_2 == "paper":
-        print("Human 2 wins the match! 🍾 🍾")
-    elif human_2 == "Scissors" or human_2 == "scissors":
-        print("Human 1 wins the match! 🍾 🍾")
+import random
 
-elif human_1 == "Paper" or human_2 == "paper":
-    if human_2 == "Stone" or human_2 == "stone":
-        print("Human 1 wins the match! 🍾 🍾")
-    elif human_2 == "Paper" or human_2 == "paper":
-        print("It's a draw!")
-    elif human_2 == "Scissors" or human_2 == "scissors":
-        print("Human 2 wins the match! 🍾 🍾")
+num_of_rounds = int(input("Enter the number of rounds: "))
 
-elif human_1 == "Scissors" or human_2 == "scissors":
-    if human_2 == "Stone" or human_2 == "stone":
-        print("Human 2 wins the match! 🍾 🍾")
-    elif human_2 == "Paper" or human_2 == "paper":
-        print("Human 1 wins the match! 🍾 🍾")
-    elif human_2 == "Scissors" or human_2 == "scissors":
-        print("It's a draw!")
+human_score = 0
+comp_score = 0
+
+comp_random = random.randint(1, 3)
+
+if comp_random == 1:
+    comp_choice = "Stone"
+
+elif comp_random == 2:
+    comp_choice = "Paper"
+
 else:
-    print("Error: Incorrect input")
+    comp_choice = "Scissors"
+
+for num in range(1, num_of_rounds + 1):
+    human_choice = input("Enter 'Stone', 'Paper' or 'Scissors': ")
+
+    print(f"You chose: {human_choice}")
+    print(f"The computer chooses: {comp_choice}")
+
+    if human_choice == "Stone" or human_choice == "stone":
+        if comp_choice == "Stone":
+            human_score = human_score + 0
+            comp_score = comp_score + 0
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+        elif comp_choice == "Paper":
+            comp_score = comp_score + 1
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+        else:
+            human_score = human_score + 1
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+    elif human_choice == "Paper" or human_choice == "paper":
+        if comp_choice == "Stone":
+            human_score = human_score + 1
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+        elif comp_choice == "Paper":
+            human_score = human_score + 0
+            comp_score = comp_score + 0
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+        else:
+            comp_score = comp_score + 1
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+    elif human_choice == "Scissors" or human_choice == "scissors":
+        if comp_choice == "Stone":
+            comp_score = comp_score + 1
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+        elif comp_choice == "Paper":
+            human_score = human_score + 1
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+        else:
+            human_score = human_score + 0
+            comp_score = comp_score + 0
+            print(f"Your score: {human_score}")
+            print(f"Computer's score: {comp_score}")
+
+    else:
+        print("Error: Incorrect input")
+
+print(f"Your total score: {human_score}")
+print(f"Computer's total score: {comp_score}")
+
+if human_score > comp_score:
+    print("You won! 🍾 🍾")
+
+elif human_score < comp_score:
+    print("Computer won! 🍾 🍾")
+
+else:
+    print("It's a draw!")
