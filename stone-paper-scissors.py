@@ -18,62 +18,59 @@ elif comp_random == 2:
 else:
     comp_choice = "Scissors"
 
+def print_out_human_and_computer_score(human_score, comp_score):
+    print(f"Your score: {human_score}")
+    print(f"Computer's score: {comp_score}")
+
 for num in range(1, num_of_rounds + 1):
     human_choice = input("Enter 'Stone', 'Paper' or 'Scissors': ")
 
     print(f"You chose: {human_choice}")
     print(f"The computer chooses: {comp_choice}")
 
+
+
     if human_choice == "Stone" or human_choice == "stone":
         if comp_choice == "Stone":
             human_score = human_score + 0
             comp_score = comp_score + 0
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
         elif comp_choice == "Paper":
             comp_score = comp_score + 1
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
         else:
             human_score = human_score + 1
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
     elif human_choice == "Paper" or human_choice == "paper":
         if comp_choice == "Stone":
             human_score = human_score + 1
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
         elif comp_choice == "Paper":
             human_score = human_score + 0
             comp_score = comp_score + 0
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
         else:
             comp_score = comp_score + 1
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
     elif human_choice == "Scissors" or human_choice == "scissors":
         if comp_choice == "Stone":
             comp_score = comp_score + 1
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
         elif comp_choice == "Paper":
             human_score = human_score + 1
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
         else:
             human_score = human_score + 0
             comp_score = comp_score + 0
-            print(f"Your score: {human_score}")
-            print(f"Computer's score: {comp_score}")
+            print_out_human_and_computer_score(human_score,comp_score)
 
     else:
         print("Error: Incorrect input")
